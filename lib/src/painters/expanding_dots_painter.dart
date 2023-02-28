@@ -44,7 +44,15 @@ class ExpandingDotsPainter extends BasicIndicatorPainter {
         dotRadius,
       );
       drawingOffset = rRect.right;
-      canvas.drawRRect(rRect, dotPaint..color = color);
+      if(effect.isEnableDotColorGradient){
+        canvas.drawRRect(rRect, dotPaint..shader = LinearGradient(
+          end:Alignment.bottomCenter ,
+          begin: Alignment.topCenter,
+          colors: effect.gradient ?? <Color>[const Color(0xff2F6BC3), const Color(0xff1C8BDC), const Color(0xff01D4FE)],
+        ).createShader(effect.rect ?? const Rect.fromLTWH(0.5, 0, 56, 8)));
+      }else{
+        canvas.drawRRect(rRect, dotPaint..color = color);
+      }
     }
   }
 }

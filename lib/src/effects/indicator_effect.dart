@@ -46,6 +46,16 @@ abstract class BasicIndicatorEffect extends IndicatorEffect {
   /// This is ignored if [paintStyle] is PaintStyle.fill
   final double strokeWidth;
 
+  /// Nếu [isEnableDotColorGradient] là true thì sẽ bật màu Gradient lên còn nếu sai sẽ dùng [dotColor]và [activeDotColor]
+  /// Và [isEnableDotColorGradient] là true thì [dotColor]và [activeDotColor] sẽ ko dùng được nữa và ngược lại
+  final bool isEnableDotColorGradient;
+
+  /// Danh sách màu gradient
+  final List<Color>? gradient;
+
+  /// Điều chỉnh màu fromLTWH trong danh sách [gradient]
+  final Rect? rect;
+
   const BasicIndicatorEffect({
     required this.strokeWidth,
     required this.dotWidth,
@@ -55,6 +65,9 @@ abstract class BasicIndicatorEffect extends IndicatorEffect {
     required this.dotColor,
     required this.paintStyle,
     required this.activeDotColor,
+    required this.isEnableDotColorGradient,
+    this.gradient,
+    this.rect
   }) : assert(dotWidth >= 0 &&
             dotHeight >= 0 &&
             spacing >= 0 &&

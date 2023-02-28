@@ -25,6 +25,7 @@ class JumpingDotEffect extends BasicIndicatorEffect {
     Color dotColor = Colors.grey,
     double strokeWidth = 1.0,
     PaintingStyle paintStyle = PaintingStyle.fill,
+    bool isEnableDotColorGradient = false,
   }) : super(
             dotWidth: dotWidth,
             dotHeight: dotHeight,
@@ -33,6 +34,7 @@ class JumpingDotEffect extends BasicIndicatorEffect {
             strokeWidth: strokeWidth,
             paintStyle: paintStyle,
             dotColor: dotColor,
+            isEnableDotColorGradient: isEnableDotColorGradient,
             activeDotColor: activeDotColor);
 
   @override

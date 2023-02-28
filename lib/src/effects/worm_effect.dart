@@ -6,6 +6,7 @@ import 'indicator_effect.dart';
 
 class WormEffect extends BasicIndicatorEffect {
   final WormType type;
+
   const WormEffect({
     double offset = 16.0,
     double dotWidth = 16.0,
@@ -16,6 +17,7 @@ class WormEffect extends BasicIndicatorEffect {
     Color activeDotColor = Colors.indigo,
     double strokeWidth = 1.0,
     PaintingStyle paintStyle = PaintingStyle.fill,
+    bool isEnableDotColorGradient = false,
     this.type = WormType.normal,
   }) : super(
           dotWidth: dotWidth,
@@ -26,6 +28,7 @@ class WormEffect extends BasicIndicatorEffect {
           paintStyle: paintStyle,
           dotColor: dotColor,
           activeDotColor: activeDotColor,
+          isEnableDotColorGradient: isEnableDotColorGradient,
         );
 
   @override

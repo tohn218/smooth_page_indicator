@@ -15,15 +15,18 @@ class SlideEffect extends BasicIndicatorEffect {
     Color dotColor = Colors.grey,
     double strokeWidth = 1.0,
     PaintingStyle paintStyle = PaintingStyle.fill,
+    bool isEnableDotColorGradient = false,
   }) : super(
-            dotWidth: dotWidth,
-            dotHeight: dotHeight,
-            spacing: spacing,
-            radius: radius,
-            strokeWidth: strokeWidth,
-            paintStyle: paintStyle,
-            dotColor: dotColor,
-            activeDotColor: activeDotColor);
+          dotWidth: dotWidth,
+          dotHeight: dotHeight,
+          spacing: spacing,
+          radius: radius,
+          strokeWidth: strokeWidth,
+          paintStyle: paintStyle,
+          dotColor: dotColor,
+          activeDotColor: activeDotColor,
+          isEnableDotColorGradient: isEnableDotColorGradient,
+        );
 
   @override
   IndicatorPainter buildPainter(int count, double offset) {

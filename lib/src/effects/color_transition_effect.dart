@@ -20,6 +20,7 @@ class ColorTransitionEffect extends BasicIndicatorEffect {
     Color activeDotColor = Colors.indigo,
     double strokeWidth = 1.0,
     PaintingStyle paintStyle = PaintingStyle.fill,
+    bool isEnableDotColorGradient = false,
   }) : super(
             dotWidth: dotWidth,
             dotHeight: dotHeight,
@@ -28,7 +29,7 @@ class ColorTransitionEffect extends BasicIndicatorEffect {
             strokeWidth: strokeWidth,
             paintStyle: paintStyle,
             dotColor: dotColor,
-            activeDotColor: activeDotColor);
+            activeDotColor: activeDotColor, isEnableDotColorGradient: isEnableDotColorGradient);
 
   @override
   IndicatorPainter buildPainter(int count, double offset) {

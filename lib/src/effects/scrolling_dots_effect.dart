@@ -38,6 +38,7 @@ class ScrollingDotsEffect extends BasicIndicatorEffect {
     Color activeDotColor = Colors.indigo,
     double strokeWidth = 1.0,
     PaintingStyle paintStyle = PaintingStyle.fill,
+    bool isEnableDotColorGradient = false,
   })  : assert(activeDotScale >= 0.0),
         assert(maxVisibleDots >= 5 && maxVisibleDots % 2 != 0),
         super(
@@ -49,6 +50,7 @@ class ScrollingDotsEffect extends BasicIndicatorEffect {
           paintStyle: paintStyle,
           dotColor: dotColor,
           activeDotColor: activeDotColor,
+          isEnableDotColorGradient: isEnableDotColorGradient,
         );
 
   @override
@@ -65,16 +67,10 @@ class ScrollingDotsEffect extends BasicIndicatorEffect {
   int hitTestDots(double dx, int count, double current) {
     final switchPoint = (maxVisibleDots / 2).floor();
     if (fixedCenter) {
-      return super.hitTestDots(dx, count, current) -
-          switchPoint +
-          current.floor();
+      return super.hitTestDots(dx, count, current) - switchPoint + current.floor();
     } else {
-      final firstVisibleDot =
-          (current < switchPoint || count - 1 < maxVisibleDots)
-              ? 0
-              : min(current - switchPoint, count - maxVisibleDots).floor();
-      final lastVisibleDot =
-          min(firstVisibleDot + maxVisibleDots, count - 1).floor();
+      final firstVisibleDot = (current < switchPoint || count - 1 < maxVisibleDots) ? 0 : min(current - switchPoint, count - maxVisibleDots).floor();
+      final lastVisibleDot = min(firstVisibleDot + maxVisibleDots, count - 1).floor();
       var offset = 0.0;
       for (var index = firstVisibleDot; index <= lastVisibleDot; index++) {
         if (dx <= (offset += dotWidth + spacing)) {

@@ -6,6 +6,7 @@ import 'indicator_effect.dart';
 
 class SwapEffect extends BasicIndicatorEffect {
   final SwapType type;
+
   const SwapEffect({
     Color activeDotColor = Colors.indigo,
     double offset = 16.0,
@@ -17,6 +18,7 @@ class SwapEffect extends BasicIndicatorEffect {
     double strokeWidth = 1.0,
     this.type = SwapType.normal,
     PaintingStyle paintStyle = PaintingStyle.fill,
+    bool isEnableDotColorGradient = false,
   }) : super(
           dotWidth: dotWidth,
           dotHeight: dotHeight,
@@ -26,6 +28,7 @@ class SwapEffect extends BasicIndicatorEffect {
           paintStyle: paintStyle,
           dotColor: dotColor,
           activeDotColor: activeDotColor,
+          isEnableDotColorGradient: isEnableDotColorGradient,
         );
 
   @override

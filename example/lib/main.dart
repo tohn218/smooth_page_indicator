@@ -71,11 +71,13 @@ class _HomePageState extends State<HomePage> {
               SmoothPageIndicator(
                 controller: controller,
                 count: pages.length,
-                effect: WormEffect(
-                  dotHeight: 16,
-                  dotWidth: 16,
-                  type: WormType.thin,
-                  // strokeWidth: 5,
+                effect: ExpandingDotsEffect(
+                  radius: 8,
+                  spacing: 4,
+                  dotHeight: 8,
+                  dotWidth: 8,
+                  expansionFactor: 4,
+                  isEnableDotColorGradient: false
                 ),
               ),
               Padding(

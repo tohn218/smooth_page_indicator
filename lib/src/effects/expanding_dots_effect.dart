@@ -18,25 +18,30 @@ class ExpandingDotsEffect extends BasicIndicatorEffect {
     double radius = 16.0,
     Color activeDotColor = Colors.indigo,
     Color dotColor = Colors.grey,
+    bool isEnableDotColorGradient = false,
     double strokeWidth = 1.0,
+    List<Color>? gradients,
+    Rect? rect,
     PaintingStyle paintStyle = PaintingStyle.fill,
   })  : assert(expansionFactor > 1),
         super(
-            dotWidth: dotWidth,
-            dotHeight: dotHeight,
-            spacing: spacing,
-            radius: radius,
-            strokeWidth: strokeWidth,
-            paintStyle: paintStyle,
-            dotColor: dotColor,
-            activeDotColor: activeDotColor);
+          dotWidth: dotWidth,
+          dotHeight: dotHeight,
+          spacing: spacing,
+          radius: radius,
+          strokeWidth: strokeWidth,
+          paintStyle: paintStyle,
+          dotColor: dotColor,
+          activeDotColor: activeDotColor,
+          isEnableDotColorGradient: isEnableDotColorGradient,
+          gradient: gradients,
+          rect: rect,
+        );
 
   @override
   Size calculateSize(int count) {
     // Add the expanded dot width to our size calculation
-    return Size(
-        ((dotWidth + spacing) * (count - 1)) + (expansionFactor * dotWidth),
-        dotHeight);
+    return Size(((dotWidth + spacing) * (count - 1)) + (expansionFactor * dotWidth), dotHeight);
   }
 
   @override
@@ -48,9 +53,7 @@ class ExpandingDotsEffect extends BasicIndicatorEffect {
   int hitTestDots(double dx, int count, double current) {
     var anchor = -spacing / 2;
     for (var index = 0; index < count; index++) {
-      var widthBound =
-          (index == current ? (dotWidth * expansionFactor) : dotWidth) +
-              spacing;
+      var widthBound = (index == current ? (dotWidth * expansionFactor) : dotWidth) + spacing;
       if (dx <= (anchor += widthBound)) {
         return index;
       }

@@ -28,6 +28,7 @@ class ScaleEffect extends BasicIndicatorEffect {
     Color dotColor = Colors.grey,
     double strokeWidth = 1.0,
     PaintingStyle paintStyle = PaintingStyle.fill,
+    bool isEnableDotColorGradient = false,
   }) : super(
           dotWidth: dotWidth,
           dotHeight: dotHeight,
@@ -37,6 +38,7 @@ class ScaleEffect extends BasicIndicatorEffect {
           paintStyle: paintStyle,
           dotColor: dotColor,
           activeDotColor: activeDotColor,
+          isEnableDotColorGradient: isEnableDotColorGradient,
         );
 
   @override
